@@ -1,9 +1,10 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import { BsBookmark } from 'react-icons/bs'; // Use 'react-icons/bs' for Bootstrap Icons
 
-const Blog = ({ blog ,bookmark}) => {
+const Blog = ({ blog, bookmark, markAsRead }) => {
   const { cover, author_img, author, posted_date, reading_time, title, hashtags } = blog;
-  
+
   return (
     <div className='my-10 xl:w-full'>
       <img className='mb-4 rounded-lg md:w-full md:h-full' src={cover} alt="" />
@@ -16,16 +17,20 @@ const Blog = ({ blog ,bookmark}) => {
           </div>
         </div>
         
-        <span style={{ whiteSpace: 'nowrap'}} className='text-neutral-900 text-opacity-60 font-medium me-2'>{reading_time} min read <button onClick={()=>{bookmark(blog)}}><BsBookmark /></button> </span>
-
+        <span style={{ whiteSpace: 'nowrap'}} className='text-neutral-900 text-opacity-60 font-medium me-2'>{reading_time} min read <button onClick={() => bookmark(blog)}><BsBookmark /></button> </span>
       </div>
       <h1 className='text-neutral-900 text-3xl font-bold my-4'>{title}</h1>
       {hashtags.map((hash, idx) => <span style={{ whiteSpace: 'nowrap' }} className='me-6 text-neutral-900 text-opacity-60 text-lg font-medium' key={idx}>#{hash}</span>)}
+      <br />
+      <button onClick={() => markAsRead(reading_time)} className="text-indigo-600 text-xl font-semibold underline cursor-pointer">Mark as read</button>
     </div>
   );
 };
 
 Blog.propTypes = {
-  blog: PropTypes.object.isRequired};
+  blog: PropTypes.object.isRequired,
+  bookmark: PropTypes.func.isRequired,
+  markAsRead: PropTypes.func.isRequired,
+};
 
 export default Blog;
