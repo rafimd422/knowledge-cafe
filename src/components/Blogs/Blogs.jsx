@@ -10,7 +10,7 @@ const Blogs = () => {
         .then(data => setBlogs(data))
         },[])
   return (
-    <div>
+    <div className="mx-8">
       <h1 className="text-3xl">Blogs: {blogs.length}</h1>
       {blogs.map(blog=> 
       <Blog 

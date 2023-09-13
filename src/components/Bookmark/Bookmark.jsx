@@ -1,7 +1,7 @@
 
 const Bookmark = () => {
   return (
-    <div className="w-52">
+    <div className="w-60">
       Bookmark
     </div>
   )

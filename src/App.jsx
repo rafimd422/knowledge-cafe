@@ -8,7 +8,7 @@ function App() {
   return (
     <>
  <Header></Header>
- <main className='container mx-auto md:flex justify-between'>
+ <main className='container mx-auto flex md:justify-between lg:flex-row flex-col justify-center'>
   <Blogs></Blogs>
   <Bookmark></Bookmark>
  </main>
