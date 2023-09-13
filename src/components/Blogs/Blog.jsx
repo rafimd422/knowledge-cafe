@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { BsBookmark } from 'react-icons/bs'; // Use 'react-icons/bs' for Bootstrap Icons
 
-const Blog = ({ blog }) => {
+const Blog = ({ blog ,bookmark}) => {
   const { cover, author_img, author, posted_date, reading_time, title, hashtags } = blog;
   
   return (
@@ -16,7 +16,7 @@ const Blog = ({ blog }) => {
           </div>
         </div>
         
-        <span style={{ whiteSpace: 'nowrap'}} className='text-neutral-900 text-opacity-60 font-medium me-2'>{reading_time} min read <button><BsBookmark /></button> </span>
+        <span style={{ whiteSpace: 'nowrap'}} className='text-neutral-900 text-opacity-60 font-medium me-2'>{reading_time} min read <button onClick={()=>{bookmark(blog)}}><BsBookmark /></button> </span>
 
       </div>
       <h1 className='text-neutral-900 text-3xl font-bold my-4'>{title}</h1>
@@ -26,7 +26,6 @@ const Blog = ({ blog }) => {
 };
 
 Blog.propTypes = {
-  blog: PropTypes.object.isRequired,
-};
+  blog: PropTypes.object.isRequired};
 
 export default Blog;
