@@ -12,9 +12,13 @@ const Blogs = () => {
   return (
     <div>
       <h1 className="text-3xl">Blogs: {blogs.length}</h1>
-      {blogs.map(blog=> <Blog blog={blog}></Blog>)}
+      {blogs.map(blog=> 
+      <Blog 
+      key={blog.id}
+       blog={blog}>
+       </Blog>)}
     </div>
   )
-}
+} 
 
 export default Blogs
